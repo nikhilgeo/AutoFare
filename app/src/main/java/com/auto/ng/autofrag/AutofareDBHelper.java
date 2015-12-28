@@ -1,0 +1,57 @@
+package com.auto.ng.autofrag;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import com.auto.ng.autofrag.AutoFareDBContract.BaseFareTemplate;
+
+/**
+ * Created by nikhilgeorge on 28-Dec-15.
+ */
+public class AutofareDBHelper extends SQLiteOpenHelper {
+
+    // If you change the database schema, you must increment the database
+    // version.
+    public static final int DATABASE_VERSION = 1;
+    public static final String DATABASE_NAME = "autoFare.db";
+    private static final String TEXT_TYPE = " TEXT";
+    private static final String COMMA_SEP = ",";
+    private static final String SQL_CREATE_ENTRIES_BaseFare = "CREATE TABLE "
+            + BaseFareTemplate.TABLE_NAME + " (" + BaseFareTemplate._ID
+            + " INTEGER PRIMARY KEY" + COMMA_SEP +
+            BaseFareTemplate.COLUMN_NAME_minCharge + TEXT_TYPE + COMMA_SEP +
+            BaseFareTemplate.COLUMN_NAME_minCharge_KM + TEXT_TYPE + COMMA_SEP +
+            BaseFareTemplate.COLUMN_NAME_additionalFare + TEXT_TYPE + COMMA_SEP +
+            BaseFareTemplate.COLUMN_NAME_additionalFare_KM + TEXT_TYPE + COMMA_SEP +
+            BaseFareTemplate.COLUMN_NAME_nightCharge + TEXT_TYPE + COMMA_SEP +
+            BaseFareTemplate.COLUMN_NAME_waitingCharge + TEXT_TYPE + COMMA_SEP +
+            BaseFareTemplate.COLUMN_NAME_waitingCharge_Min + TEXT_TYPE +
+            " )";
+
+    private static final String SQL_DELETE_ENTRIES_BaseFare = "DROP TABLE IF EXISTS "
+            + BaseFareTemplate.TABLE_NAME;
+
+    public AutofareDBHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        try {
+            Log.w("AutoFare:", SQL_CREATE_ENTRIES_BaseFare);
+            db.execSQL(SQL_CREATE_ENTRIES_BaseFare);
+        } catch (Exception ex) {
+            Log.w("AutoFare:", ex.toString(), ex);
+        }
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // This database is only a cache for online data, so its upgrade policy
+        // is to simply to discard the data and start over
+        db.execSQL(SQL_DELETE_ENTRIES_BaseFare);
+        onCreate(db);
+    }
+}
