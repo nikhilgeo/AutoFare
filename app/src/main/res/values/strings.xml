@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Kerala: Auto Fare Assistant</string>
+    <string name="app_name">Autowala</string>
+    <string name="Rs">\u20B9</string>
+    <!-- Kerala Auto Fare -->
+    <string name="minCharge">20</string>
+    <string name="minCharge_KM">1.5</string>
+    <string name="additionalFare">10</string>
+    <string name="additionalFare_KM">1</string>
+    <string name="nightCharge">50</string>
+    <string name="waitingCharge">10</string>
+    <string name="waitingCharge_Min">15</string>
 </resources>

@@ -3,16 +3,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.auto.ng.autofrag.MainActivity"
-    android:orientation="vertical"
-    >
+    tools:context="com.auto.ng.autofrag.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:alignmentMode="alignBounds"
+        android:columnCount="2"
+        android:columnOrderPreserved="false"
+        android:useDefaultMargins="true">
+
+        <TextView android:text="Minimum charge:" />
+
+        <TextView android:id="@+id/txtviewMinCharge" />
+
+        <TextView android:text="Additional charge:" />
+
+        <TextView android:id="@+id/txtviewAddnCharge" />
+
+        <TextView android:text="Night charge [10PM-5AM]:" />
+
+        <TextView android:id="@+id/txtviewNightCharge" />
+
+        <TextView android:text="Waiting charge:" />
+
+        <TextView android:id="@+id/txtviewWatingCharge" />
+    </GridLayout>
 </LinearLayout>

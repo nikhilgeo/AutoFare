@@ -21,5 +21,7 @@ public class AutoFareDBContract {
         public static final String COLUMN_NAME_nightCharge = "nightCharge";
         public static final String COLUMN_NAME_waitingCharge = "waitingCharge";
         public static final String COLUMN_NAME_waitingCharge_Min = "waitingCharge_Min";
+        public static final String COLUMN_NAME_stateName = "stateName";
+
     }
 }
