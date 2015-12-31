@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.auto.ng.autofrag.MainActivity">
 
 
@@ -18,20 +19,36 @@
         android:columnOrderPreserved="false"
         android:useDefaultMargins="true">
 
-        <TextView android:text="Minimum charge:" />
+        <TextView
+            android:text="Minimum charge:"
+            style="@style/TextViewTheme" />
 
-        <TextView android:id="@+id/txtviewMinCharge" />
+        <TextView
+            android:id="@+id/txtviewMinCharge"
+            style="@style/TextViewTheme" />
 
-        <TextView android:text="Additional charge:" />
+        <TextView
+            android:text="Additional charge:"
+            style="@style/TextViewTheme" />
 
-        <TextView android:id="@+id/txtviewAddnCharge" />
+        <TextView
+            android:id="@+id/txtviewAddnCharge"
+            style="@style/TextViewTheme" />
 
-        <TextView android:text="Night charge [10PM-5AM]:" />
+        <TextView
+            android:text="Night charge [10PM-5AM]:"
+            style="@style/TextViewTheme" />
 
-        <TextView android:id="@+id/txtviewNightCharge" />
+        <TextView
+            android:id="@+id/txtviewNightCharge"
+            style="@style/TextViewTheme" />
 
-        <TextView android:text="Waiting charge:" />
+        <TextView
+            android:text="Waiting charge:"
+            style="@style/TextViewTheme" />
 
-        <TextView android:id="@+id/txtviewWatingCharge" />
+        <TextView
+            android:id="@+id/txtviewWatingCharge"
+            style="@style/TextViewTheme" />
     </GridLayout>
 </LinearLayout>
