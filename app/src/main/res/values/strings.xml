@@ -9,4 +9,7 @@
     <string name="nightCharge">50</string>
     <string name="waitingCharge">10</string>
     <string name="waitingCharge_Min">15</string>
+    <string name="travel_distance">KM</string>
+    <string name="waiting_time">Mins</string>
+    <string name="apply_night_charge">Night charge</string>
 </resources>
