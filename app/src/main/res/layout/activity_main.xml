@@ -3,52 +3,182 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/activity_vertical_margin"
+    android:layout_marginRight="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.auto.ng.autofrag.MainActivity">
 
 
     <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:alignmentMode="alignBounds"
         android:columnCount="2"
         android:columnOrderPreserved="false"
         android:useDefaultMargins="true">
 
         <TextView
-            android:text="Minimum charge:"
-            style="@style/TextViewTheme" />
+            android:layout_columnSpan="2"
+            android:layout_gravity="center_horizontal"
+            android:text="STANDARD FARE" />
+
+        <TextView
+            style="@style/TextViewTheme"
+            android:text="Minimum charge:" />
 
         <TextView
             android:id="@+id/txtviewMinCharge"
             style="@style/TextViewTheme" />
 
         <TextView
-            android:text="Additional charge:"
-            style="@style/TextViewTheme" />
+            style="@style/TextViewTheme"
+            android:text="Additional charge:" />
 
         <TextView
             android:id="@+id/txtviewAddnCharge"
             style="@style/TextViewTheme" />
 
         <TextView
-            android:text="Night charge [10PM-5AM]:"
-            style="@style/TextViewTheme" />
+            style="@style/TextViewTheme"
+            android:text="Night 10PM-5AM:" />
 
         <TextView
             android:id="@+id/txtviewNightCharge"
             style="@style/TextViewTheme" />
 
         <TextView
-            android:text="Waiting charge:"
-            style="@style/TextViewTheme" />
+            style="@style/TextViewTheme"
+            android:text="Waiting charge:" />
 
         <TextView
             android:id="@+id/txtviewWatingCharge"
             style="@style/TextViewTheme" />
     </GridLayout>
+
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alignmentMode="alignBounds"
+        android:columnCount="3"
+        android:columnOrderPreserved="false">
+
+        <TextView
+            android:layout_columnSpan="3"
+            android:layout_gravity="center_horizontal"
+            android:text="FARE CALCULATOR" />
+
+        <TextView
+            style="@style/TextViewTheme"
+            android:text="Distance:" />
+
+        <EditText
+            android:id="@+id/travel_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/travel_distance"
+            android:inputType="numberDecimal"
+            android:maxLength="4"
+            android:layout_gravity="left" />
+
+        <Space
+            android:layout_column="2"
+            android:layout_row="1" />
+
+
+        <Space
+            android:layout_column="0"
+            android:layout_row="2" />
+
+        <TextView
+            style="@style/TextViewTheme"
+            android:text="Running charge:"
+            android:layout_gravity="left" />
+
+        <TextView
+            android:id="@+id/running_charge"
+            style="@style/TextViewTheme"
+            android:layout_gravity="center_horizontal"
+            android:text="125RS" />
+
+
+        <TextView
+            style="@style/TextViewTheme"
+            android:text="Waiting Time:" />
+
+        <EditText
+            android:id="@+id/waiting_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/waiting_time"
+            android:inputType="numberDecimal"
+            android:maxLength="3" />
+
+        <Space
+            android:layout_column="2"
+            android:layout_row="3" />
+
+
+        <Space
+            android:layout_column="0"
+            android:layout_row="4" />
+
+        <TextView
+            style="@style/TextViewTheme"
+            android:layout_gravity="left"
+            android:text="Waiting charge:" />
+
+        <TextView
+            android:id="@+id/waiting__charge"
+            style="@style/TextViewTheme"
+            android:layout_gravity="center_horizontal"
+            android:text="125RS" />
+
+
+        <TextView
+            style="@style/TextViewTheme"
+            android:text="Night charge:" />
+
+        <CheckBox android:id="@+id/apply_night_charge" />
+
+        <Space
+            android:layout_column="2"
+            android:layout_row="5" />
+
+
+        <Space
+            android:layout_column="0"
+            android:layout_row="6" />
+
+        <TextView
+            style="@style/TextViewTheme"
+            android:layout_gravity="left"
+            android:text="Night charge:" />
+
+        <TextView
+            android:id="@+id/night_charge"
+            style="@style/TextViewTheme"
+            android:layout_gravity="center_horizontal"
+            android:text="125RS" />
+
+        <Space
+            android:layout_column="0"
+            android:layout_row="7" />
+
+        <TextView
+            style="@style/TextViewTheme"
+            android:layout_gravity="left"
+            android:text="Total charge:" />
+
+        <TextView
+            android:id="@+id/total_charge"
+            style="@style/TextViewTheme"
+            android:layout_gravity="center_horizontal"
+            android:text="125RS" />
+
+
+    </GridLayout>
+
 </LinearLayout>
