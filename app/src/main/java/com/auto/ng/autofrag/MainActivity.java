@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -65,17 +66,44 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void calcFare() {
+    public void calcFare(View view) {
         try {
             EditText etxt_travel_dist = (EditText) findViewById(R.id.travel_distance);
             EditText etxt_waiting_time = (EditText) findViewById(R.id.waiting_time);
             CheckBox chk_apply_night_charge = (CheckBox) findViewById(R.id.apply_night_charge);
 
-            float travel_dist = Float.parseFloat(etxt_travel_dist.getText().toString());
-            float waiting_time = Float.parseFloat(etxt_waiting_time.getText().toString());
+            TextView txtview_running_charge = (TextView) findViewById(R.id.running_charge);
+            TextView txtviewe_waiting__charge = (TextView) findViewById(R.id.waiting__charge);
+            TextView txtview_night_charge = (TextView) findViewById(R.id.night_charge);
+            TextView txtview_total_charge = (TextView) findViewById(R.id.total_charge);
+
+
             Boolean apply_night_charge = chk_apply_night_charge.isChecked();
 
             float fare = minCharge;
+
+
+            if (etxt_travel_dist.getText().toString().trim().length() != 0) {
+                float travel_dist = Float.parseFloat(etxt_travel_dist.getText().toString());
+                if (travel_dist > minCharge_KM) {
+                    float addn_dist = travel_dist - minCharge_KM;
+                    fare = fare + (addn_dist * additionalFare);
+                }
+                txtview_running_charge.setText(getResources().getString(R.string.Rs) + Float.toString(fare));
+            }
+            if (etxt_waiting_time.getText().toString().trim().length() != 0) {
+                float waiting_time = Float.parseFloat(etxt_waiting_time.getText().toString());
+                float waiting_charge = waiting_time * (waitingCharge / waitingCharge_Min);
+                fare = fare + waiting_charge;
+                txtviewe_waiting__charge.setText(getResources().getString(R.string.Rs) + Math.round(waiting_charge));
+            }
+            if (apply_night_charge) {
+                float night_charge = (nightCharge / 100) * fare;
+                fare = fare + night_charge;
+                txtview_night_charge.setText(getResources().getString(R.string.Rs) + Math.round(night_charge));
+            }
+
+            txtview_total_charge.setText(getResources().getString(R.string.Rs) + String.valueOf(Math.round(fare)));
 
         } catch (Exception ex) {
             Log.e("AutoFare", ex.toString());
