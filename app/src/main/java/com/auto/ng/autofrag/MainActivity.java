@@ -1,18 +1,21 @@
 package com.auto.ng.autofrag;
 
 import android.database.Cursor;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.auto.ng.autofrag.AutoFareDBContract.BaseFareTemplate;
 
+
 public class MainActivity extends AppCompatActivity {
 
-    String minCharge, minCharge_KM, additionalFare, additionalFare_KM,
+    float minCharge, minCharge_KM, additionalFare, additionalFare_KM,
             nightCharge, waitingCharge, waitingCharge_Min;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,13 +42,13 @@ public class MainActivity extends AppCompatActivity {
             Cursor cursor = utilities.readDB(BaseFareTemplate.TABLE_NAME, projection, whereCondtion);
 
             if (cursor.moveToFirst()) {
-                minCharge = cursor.getString(cursor.getColumnIndexOrThrow(BaseFareTemplate.COLUMN_NAME_minCharge));
-                minCharge_KM = cursor.getString(cursor.getColumnIndexOrThrow(BaseFareTemplate.COLUMN_NAME_minCharge_KM));
-                additionalFare = cursor.getString(cursor.getColumnIndexOrThrow(BaseFareTemplate.COLUMN_NAME_additionalFare));
-                additionalFare_KM = cursor.getString(cursor.getColumnIndexOrThrow(BaseFareTemplate.COLUMN_NAME_additionalFare_KM));
-                nightCharge = cursor.getString(cursor.getColumnIndexOrThrow(BaseFareTemplate.COLUMN_NAME_nightCharge));
-                waitingCharge = cursor.getString(cursor.getColumnIndexOrThrow(BaseFareTemplate.COLUMN_NAME_waitingCharge));
-                waitingCharge_Min = cursor.getString(cursor.getColumnIndexOrThrow(BaseFareTemplate.COLUMN_NAME_waitingCharge_Min));
+                minCharge = Float.parseFloat(cursor.getString(cursor.getColumnIndexOrThrow(BaseFareTemplate.COLUMN_NAME_minCharge)));
+                minCharge_KM = Float.parseFloat(cursor.getString(cursor.getColumnIndexOrThrow(BaseFareTemplate.COLUMN_NAME_minCharge_KM)));
+                additionalFare = Float.parseFloat(cursor.getString(cursor.getColumnIndexOrThrow(BaseFareTemplate.COLUMN_NAME_additionalFare)));
+                additionalFare_KM = Float.parseFloat(cursor.getString(cursor.getColumnIndexOrThrow(BaseFareTemplate.COLUMN_NAME_additionalFare_KM)));
+                nightCharge = Float.parseFloat(cursor.getString(cursor.getColumnIndexOrThrow(BaseFareTemplate.COLUMN_NAME_nightCharge)));
+                waitingCharge = Float.parseFloat(cursor.getString(cursor.getColumnIndexOrThrow(BaseFareTemplate.COLUMN_NAME_waitingCharge)));
+                waitingCharge_Min = Float.parseFloat(cursor.getString(cursor.getColumnIndexOrThrow(BaseFareTemplate.COLUMN_NAME_waitingCharge_Min)));
 
                 TextView txtviewMinCharge = (TextView) findViewById(R.id.txtviewMinCharge);
                 txtviewMinCharge.setText(getResources().getString(R.string.Rs) + minCharge + "/" + minCharge_KM + "KM");
@@ -60,6 +63,23 @@ public class MainActivity extends AppCompatActivity {
             Log.e("AutoFare", ex.toString());
         }
 
+    }
+
+    private void calcFare() {
+        try {
+            EditText etxt_travel_dist = (EditText) findViewById(R.id.travel_distance);
+            EditText etxt_waiting_time = (EditText) findViewById(R.id.waiting_time);
+            CheckBox chk_apply_night_charge = (CheckBox) findViewById(R.id.apply_night_charge);
+
+            float travel_dist = Float.parseFloat(etxt_travel_dist.getText().toString());
+            float waiting_time = Float.parseFloat(etxt_waiting_time.getText().toString());
+            Boolean apply_night_charge = chk_apply_night_charge.isChecked();
+
+            float fare = minCharge;
+
+        } catch (Exception ex) {
+            Log.e("AutoFare", ex.toString());
+        }
     }
 }
 
