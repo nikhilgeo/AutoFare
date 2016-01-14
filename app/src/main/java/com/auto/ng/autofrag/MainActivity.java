@@ -3,6 +3,8 @@ package com.auto.ng.autofrag;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
@@ -16,13 +18,49 @@ public class MainActivity extends AppCompatActivity {
 
     float minCharge, minCharge_KM, additionalFare, additionalFare_KM,
             nightCharge, waitingCharge, waitingCharge_Min;
+    private EditText etxttravel_distance, etxtwaiting_time;
+    private TextView txtrunning_charge, txtwaiting__charge;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        setContentView(R.layout.activity_main);
+        etxttravel_distance = (EditText) findViewById(R.id.travel_distance);
+        etxtwaiting_time = (EditText) findViewById(R.id.waiting_time);
+        txtrunning_charge = (TextView) findViewById(R.id.running_charge);
+        txtwaiting__charge = (TextView) findViewById(R.id.waiting__charge);
+
+        etxttravel_distance.addTextChangedListener(new TextWatcher() {
+
+            public void afterTextChanged(Editable s) {
+            }
+
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                txtrunning_charge.setText("0");
+            }
+        });
+
+        etxtwaiting_time.addTextChangedListener(new TextWatcher() {
+
+            public void afterTextChanged(Editable s) {
+            }
+
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                txtwaiting__charge.setText("0");
+            }
+        });
+
         getFare();
-    }
+    } //On create End
 
 
     private void getFare() {
