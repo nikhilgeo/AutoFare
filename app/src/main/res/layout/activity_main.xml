@@ -11,10 +11,13 @@
 
     <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:alignmentMode="alignBounds"
+        android:background="@drawable/rounded_corner"
         android:columnCount="2"
         android:columnOrderPreserved="false"
         android:useDefaultMargins="true">
@@ -30,7 +33,9 @@
 
         <TextView
             android:id="@+id/txtviewMinCharge"
-            style="@style/TextViewTheme" />
+            style="@style/TextViewTheme"
+
+            android:layout_gravity="right" />
 
         <TextView
             style="@style/TextViewTheme"
@@ -38,7 +43,9 @@
 
         <TextView
             android:id="@+id/txtviewAddnCharge"
-            style="@style/TextViewTheme" />
+            style="@style/TextViewTheme"
+
+            android:layout_gravity="right" />
 
         <TextView
             style="@style/TextViewTheme"
@@ -46,7 +53,9 @@
 
         <TextView
             android:id="@+id/txtviewNightCharge"
-            style="@style/TextViewTheme" />
+            style="@style/TextViewTheme"
+
+            android:layout_gravity="right" />
 
         <TextView
             style="@style/TextViewTheme"
@@ -54,7 +63,9 @@
 
         <TextView
             android:id="@+id/txtviewWatingCharge"
-            style="@style/TextViewTheme" />
+            style="@style/TextViewTheme"
+
+            android:layout_gravity="right" />
     </GridLayout>
 
     <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -63,6 +74,7 @@
         android:layout_height="wrap_content"
         android:alignmentMode="alignBounds"
         android:columnCount="3"
+        android:background="@drawable/rounded_corner"
         android:columnOrderPreserved="false">
 
         <TextView
@@ -163,15 +175,9 @@
             android:layout_gravity="center_horizontal"
             android:text="0" />
 
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <Space
             android:layout_column="0"
-            android:layout_row="7"
-            android:text="New Button"
-            android:onClick="calcFare" />
+            android:layout_row="7" />
 
         <TextView
             style="@style/TextViewTheme"
@@ -187,5 +193,12 @@
 
     </GridLayout>
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="calcFare"
+        android:layout_gravity="center_horizontal"
+        android:text="Calculate Fare" />
 
 </LinearLayout>

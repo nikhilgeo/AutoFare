@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TestTest</string>
+    <string name="app_name">Kerala Autofare</string>
     <string name="Rs">\u20B9</string>
     <!-- Kerala Auto Fare -->
     <string name="minCharge">20</string>
