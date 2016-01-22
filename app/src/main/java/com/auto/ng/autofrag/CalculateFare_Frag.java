@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ public class CalculateFare_Frag extends Fragment {
     private TextView txtrunning_charge, txtwaiting__charge;
     View rootView;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_calculate_fare, container, false);
@@ -30,6 +32,8 @@ public class CalculateFare_Frag extends Fragment {
         etxtwaiting_time = (EditText) rootView.findViewById(R.id.waiting_time);
         txtrunning_charge = (TextView) rootView.findViewById(R.id.running_charge);
         txtwaiting__charge = (TextView) rootView.findViewById(R.id.waiting__charge);
+        Button btnCalc = (Button) rootView.findViewById(R.id.btnCalc);
+
 
         etxttravel_distance.addTextChangedListener(new TextWatcher() {
 
@@ -56,10 +60,16 @@ public class CalculateFare_Frag extends Fragment {
                 txtwaiting__charge.setText("0");
             }
         });
+        btnCalc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calcFare();
+            }
+        });
 
 
         getFare();
-        return inflater.inflate(R.layout.fragment_calculate_fare, container, false);
+        return rootView;
     }
 
 
@@ -89,6 +99,7 @@ public class CalculateFare_Frag extends Fragment {
                 waitingCharge = Float.parseFloat(cursor.getString(cursor.getColumnIndexOrThrow(AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_waitingCharge)));
                 waitingCharge_Min = Float.parseFloat(cursor.getString(cursor.getColumnIndexOrThrow(AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_waitingCharge_Min)));
 
+
                 TextView txtviewMinCharge = (TextView) rootView.findViewById(R.id.txtviewMinCharge);
                 txtviewMinCharge.setText(getResources().getString(R.string.Rs) + minCharge + "/" + minCharge_KM + "KM");
                 TextView txtviewAddnCharge = (TextView) rootView.findViewById(R.id.txtviewAddnCharge);
@@ -104,7 +115,7 @@ public class CalculateFare_Frag extends Fragment {
 
     }
 
-    public void calcFare(View view) {
+    public void calcFare() {
         try {
             EditText etxt_travel_dist = (EditText) rootView.findViewById(R.id.travel_distance);
             EditText etxt_waiting_time = (EditText) rootView.findViewById(R.id.waiting_time);

@@ -18,8 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
+
             android:alignmentMode="alignBounds"
             android:background="@drawable/rounded_corner"
             android:columnCount="2"
@@ -198,11 +197,10 @@
         </GridLayout>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnCalc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:onClick="calcFare"
             android:text="Calculate Fare" />
     </LinearLayout>
 
