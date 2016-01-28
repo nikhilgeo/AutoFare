@@ -5,6 +5,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -31,6 +32,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
+                Toast toast = Toast.makeText(getApplicationContext(), "Hello toast!" + tab.getPosition(), Toast.LENGTH_SHORT);
+                toast.show();
+//
+//                switch (tab.getPosition())
+//                {
+//                    case 0: //Calculate Frag
+//                        break;
+//                    case 1: //RateCard_Frag
+//                    {
+//                        RateCard_Frag fragment = (RateCard_Frag) getFragmentManager().findFragmentById(R.id.fr);
+//                        fragment.<specific_function_name>();
+//                    }
+//                }
+
             }
 
             @Override
