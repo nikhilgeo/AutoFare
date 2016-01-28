@@ -6,7 +6,7 @@ AutoFare app helps to do it with ease.
 Version 1.0.0
 ---------------------------------------------------------------------------------------------------------------------------------------
 Features:
-* Kerala state auto fare added
+* Currently support Kerala state auto fare only.
 * Fare calculation: Enter KM travelled, waiting time and select if night charge is applicable.
 * Rate Card: shows night and stand rate up to 50 KM.
 
