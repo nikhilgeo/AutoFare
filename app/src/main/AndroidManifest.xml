@@ -3,9 +3,9 @@
     package="com.auto.ng.autofrag"
     android:versionCode="1"
     android:versionName="1.0.0">
-    >
 
-    <application
+
+<application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
