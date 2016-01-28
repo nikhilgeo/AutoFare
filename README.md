@@ -1,7 +1,7 @@
 # AutoFare
 Android app that will help to determine autorickshaw fare. 
 It's difficult to remember the ever changing auto rates and calculate the KM rates and waiting charges.
-AutoFare app helps to 
+AutoFare app helps to do it with ease.
 
 Version 1.0.0
 ---------------------------------------------------------------------------------------------------------------------------------------
