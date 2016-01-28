@@ -19,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 1"));
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 2"));
+        tabLayout.addTab(tabLayout.newTab().setText("Calculate Fare"));
+        tabLayout.addTab(tabLayout.newTab().setText("Rate Card"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
@@ -34,18 +34,6 @@ public class MainActivity extends AppCompatActivity {
                 viewPager.setCurrentItem(tab.getPosition());
                 Toast toast = Toast.makeText(getApplicationContext(), "Hello toast!" + tab.getPosition(), Toast.LENGTH_SHORT);
                 toast.show();
-//
-//                switch (tab.getPosition())
-//                {
-//                    case 0: //Calculate Frag
-//                        break;
-//                    case 1: //RateCard_Frag
-//                    {
-//                        RateCard_Frag fragment = (RateCard_Frag) getFragmentManager().findFragmentById(R.id.fr);
-//                        fragment.<specific_function_name>();
-//                    }
-//                }
-
             }
 
             @Override

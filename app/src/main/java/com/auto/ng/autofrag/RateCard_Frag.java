@@ -1,6 +1,5 @@
 package com.auto.ng.autofrag;
 
-
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
