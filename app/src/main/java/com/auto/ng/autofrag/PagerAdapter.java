@@ -22,10 +22,11 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                CalculateFare_Frag tab1 = new CalculateFare_Frag();
+                RateCard_Frag tab1 = new RateCard_Frag();
+
                 return tab1;
             case 1:
-                RateCard_Frag tab2 = new RateCard_Frag();
+                CalculateFare_Frag tab2 = new CalculateFare_Frag();
                 return tab2;
             default:
                 return null;

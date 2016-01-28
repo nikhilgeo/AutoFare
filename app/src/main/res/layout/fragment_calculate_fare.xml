@@ -5,10 +5,10 @@
     tools:context="com.auto.ng.autofrag.CalculateFare_Frag">
     <!-- Dummy item to prevent AutoCompleteTextView from receiving focus -->
     <LinearLayout
-        android:focusable="true"
-        android:focusableInTouchMode="true"
         android:layout_width="0px"
-        android:layout_height="0px" />
+        android:layout_height="0px"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
 
     <!-- :nextFocusUp and :nextFocusLeft have been set to the id of this component
     to prevent the dummy from receiving focus again -->
@@ -16,8 +16,8 @@
         android:id="@+id/autotext"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:nextFocusUp="@id/autotext"
-        android:nextFocusLeft="@id/autotext" />
+        android:nextFocusLeft="@id/autotext"
+        android:nextFocusUp="@id/autotext" />
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -25,74 +25,17 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="1dp"
         android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        android:layout_marginTop="1dp"
         android:orientation="vertical">
 
 
-        <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
+        <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:useDefaultMargins="true"
             android:layout_gravity="center_horizontal"
-
-            android:alignmentMode="alignBounds"
-            android:background="@drawable/rounded_corner"
-            android:columnCount="2"
-            android:columnOrderPreserved="false"
-            android:useDefaultMargins="true">
-
-            <TextView
-                android:layout_columnSpan="2"
-                android:layout_gravity="center_horizontal"
-                android:text="STANDARD FARE"
-                android:textStyle="bold"
-
-                />
-
-            <TextView
-                style="@style/TextViewTheme"
-                android:text="Minimum charge:" />
-
-            <TextView
-                android:id="@+id/txtviewMinCharge"
-                style="@style/TextViewTheme"
-
-                android:layout_gravity="right" />
-
-            <TextView
-                style="@style/TextViewTheme"
-                android:text="Additional charge:" />
-
-            <TextView
-                android:id="@+id/txtviewAddnCharge"
-                style="@style/TextViewTheme"
-
-                android:layout_gravity="right" />
-
-            <TextView
-                style="@style/TextViewTheme"
-                android:text="Night 10PM-5AM:" />
-
-            <TextView
-                android:id="@+id/txtviewNightCharge"
-                style="@style/TextViewTheme"
-
-                android:layout_gravity="right" />
-
-            <TextView
-                style="@style/TextViewTheme"
-                android:text="Waiting charge:" />
-
-            <TextView
-                android:id="@+id/txtviewWatingCharge"
-                style="@style/TextViewTheme"
-
-                android:layout_gravity="right" />
-        </GridLayout>
-
-        <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:alignmentMode="alignBounds"
             android:background="@drawable/rounded_corner"
             android:columnCount="3"
@@ -202,28 +145,19 @@
                 android:layout_row="7" />
 
             <TextView
-                style="@style/TextViewTheme"
-                android:layout_gravity="left"
-                android:text="Total charge:" />
 
-            <TextView
-                android:id="@+id/total_charge"
-                style="@style/TextViewTheme"
                 android:layout_gravity="center_horizontal"
-                android:text="0" />
+                android:text="" />
 
             <Space
                 android:layout_column="0"
                 android:layout_row="8" />
 
-            <Button
-                android:id="@+id/btnCalc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/total_charge"
+                style="@style/TextViewTheme"
                 android:layout_gravity="center_horizontal"
-                android:text="Calculate Fare" />
-
-
+                android:text="Total charge: 0" />
         </GridLayout>
 
 

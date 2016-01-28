@@ -8,6 +8,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <!--   theme UI controls like checkboxes and text fields -->
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:actionBarSize">30dp</item>
     </style>
 
     <style name="TextViewTheme" parent="@android:style/TextAppearance.Medium">

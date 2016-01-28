@@ -1,10 +1,15 @@
 package com.auto.ng.autofrag;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.RelativeLayout;
+import android.widget.TabHost;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -19,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("Calculate Fare"));
         tabLayout.addTab(tabLayout.newTab().setText("Rate Card"));
+        tabLayout.addTab(tabLayout.newTab().setText("Calculate Fare"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);

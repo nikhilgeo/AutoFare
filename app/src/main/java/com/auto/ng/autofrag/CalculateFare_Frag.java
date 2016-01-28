@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -32,12 +33,25 @@ public class CalculateFare_Frag extends Fragment {
         etxtwaiting_time = (EditText) rootView.findViewById(R.id.waiting_time);
         txtrunning_charge = (TextView) rootView.findViewById(R.id.running_charge);
         txtwaiting__charge = (TextView) rootView.findViewById(R.id.waiting__charge);
-        Button btnCalc = (Button) rootView.findViewById(R.id.btnCalc);
+        CheckBox chk_apply_night_charge = (CheckBox) rootView.findViewById(R.id.apply_night_charge);
+
+        chk_apply_night_charge.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (!isChecked) {
+                    TextView txtview_night_charge = (TextView) rootView.findViewById(R.id.night_charge);
+                    txtview_night_charge.setText("0");
+                }
+                calcFare();
+
+            }
+        });
 
 
         etxttravel_distance.addTextChangedListener(new TextWatcher() {
 
             public void afterTextChanged(Editable s) {
+                calcFare();
             }
 
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -51,6 +65,7 @@ public class CalculateFare_Frag extends Fragment {
         etxtwaiting_time.addTextChangedListener(new TextWatcher() {
 
             public void afterTextChanged(Editable s) {
+                calcFare();
             }
 
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -58,12 +73,6 @@ public class CalculateFare_Frag extends Fragment {
 
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 txtwaiting__charge.setText("0");
-            }
-        });
-        btnCalc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calcFare();
             }
         });
 
@@ -149,7 +158,7 @@ public class CalculateFare_Frag extends Fragment {
                 txtview_night_charge.setText(getResources().getString(R.string.Rs) + Math.round(night_charge));
             }
 
-            txtview_total_charge.setText(getResources().getString(R.string.Rs) + String.valueOf(Math.round(fare)));
+            txtview_total_charge.setText("Total charge:" + getResources().getString(R.string.Rs) + String.valueOf(Math.round(fare)));
 
         } catch (Exception ex) {
             Log.e("AutoFare", ex.toString());
