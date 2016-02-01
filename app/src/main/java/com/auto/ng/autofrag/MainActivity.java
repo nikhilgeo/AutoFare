@@ -37,8 +37,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
-                Toast toast = Toast.makeText(getApplicationContext(), "Hello toast!" + tab.getPosition(), Toast.LENGTH_SHORT);
-                toast.show();
+
             }
 
             @Override

@@ -11,8 +11,8 @@
     <string name="waitingCharge_Min">15</string>
     <string name="travel_distance">KM</string>
     <string name="waiting_time">Mins</string>
-    <string name="apply_night_charge">Night charge</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="chkboxtxt">Apply Night Charges</string>
 </resources>
