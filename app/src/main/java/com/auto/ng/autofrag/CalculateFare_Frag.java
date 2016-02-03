@@ -5,9 +5,11 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -19,7 +21,6 @@ public class CalculateFare_Frag extends Fragment {
     float minCharge, minCharge_KM, additionalFare, additionalFare_KM,
             nightCharge, waitingCharge, waitingCharge_Min;
     private EditText etxttravel_distance, etxtwaiting_time;
-    private TextView txtrunning_charge, txtwaiting__charge;
     View rootView;
 
 
@@ -39,6 +40,32 @@ public class CalculateFare_Frag extends Fragment {
                 calcFare();
             }
         });
+
+        etxttravel_distance.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+
+                    etxttravel_distance.setCursorVisible(false);
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        etxtwaiting_time.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+
+                    etxtwaiting_time.setCursorVisible(false);
+                    return true;
+                }
+                return false;
+            }
+        });
+
+
         getFare();
         return rootView;
     }
@@ -46,7 +73,7 @@ public class CalculateFare_Frag extends Fragment {
 
     private void getFare() {
         try {
-            Log.w("AutoFare", "In getFare");
+            // Log.w("AutoFare", "In getFare");
             Utilities utilities = new Utilities(getActivity());
             String[] projection = {AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_minCharge,
                     AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_minCharge_KM,
@@ -72,7 +99,7 @@ public class CalculateFare_Frag extends Fragment {
 
             }
         } catch (Exception ex) {
-            Log.e("AutoFare", ex.toString());
+            //Log.e("AutoFare", ex.toString());
         }
 
     }
@@ -122,7 +149,7 @@ public class CalculateFare_Frag extends Fragment {
             calc_txt_totchrg.setText("Total charge:" + getResources().getString(R.string.Rs) + String.valueOf(Math.round(fare)));
 
         } catch (Exception ex) {
-            Log.e("AutoFare", ex.toString());
+            //Log.e("AutoFare", ex.toString());
         }
     }
 }

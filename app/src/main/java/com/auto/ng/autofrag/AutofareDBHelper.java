@@ -60,7 +60,7 @@ public class AutofareDBHelper extends SQLiteOpenHelper {
             db.execSQL(SQL_INSERT_ENTRIES_BaseFare_Kerala);
 
         } catch (Exception ex) {
-            Log.e("AutoFare", ex.toString());
+            //Log.e("AutoFare", ex.toString());
         }
     }
 
