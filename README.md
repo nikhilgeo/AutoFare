@@ -10,7 +10,6 @@ Features:
 * Fare calculation: Enter KM travelled, waiting time and select if night charge is applicable.
 * Rate Card: shows standard and night auto charges upto 50 KM
 
-
 --------------------------------------------------------------------------------------------------------------------------------------
 
 Refer wiki for version wise feature and planned features
