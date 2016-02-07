@@ -16,9 +16,11 @@ Technical Details:
 
 --------------------------------------------------------------------------------------------------------------------------------------
 Planned Features:
-* Provision to edit/update the standard fare
-* Provision to add auto fare for multiple states
-* Auto detect if night charge is applicable
-* UI and Performance improvements
+* Provision to edit/update the standard fare.
+* Provision to add auto fare for multiple states.
+* Auto detect if night charge is applicable.
+* UI and Performance improvements.
+* Trip Tracker via Google Maps.
+* Fare estimate via distance prediction.
 
 
