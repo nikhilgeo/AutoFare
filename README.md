@@ -12,4 +12,4 @@ Features:
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-Refer wiki for version wise feature and planned features
+Refer Wiki (https://github.com/nikhilgeo/AutoFare/wiki) for version wise feature and planned features
