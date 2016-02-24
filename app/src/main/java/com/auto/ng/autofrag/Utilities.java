@@ -5,12 +5,59 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import java.util.List;
+
+import static java.util.Arrays.asList;
+
+
 /**
  * Created by nikhilgeorge on 29-Dec-15.
  */
 public class Utilities {
 
     AutofareDBHelper dbHelper = null;
+    public static List<String> places = asList("Andaman and Nicobar Islands",
+            "Andhra Pradesh",
+            "Arunachal Pradesh",
+            "Assam",
+            "Bihar",
+            "Chandigarh",
+            "Chhattisgarh",
+            "Dadra and Nagar Haveli",
+            "Daman and Diu",
+            "Goa",
+            "Gujarat",
+            "Haryana",
+            "Himachal Pradesh",
+            "Jammu and Kashmir",
+            "Jharkhand",
+            "Karnataka",
+            "Kerala",
+            "Lakshadweep ",
+            "Madhya Pradesh",
+            "Maharashtra",
+            "Manipur",
+            "Meghalaya",
+            "Mizoram",
+            "Nagaland",
+            "New Delhi",
+            "Odisha(Orissa)",
+            "Puducherry",
+            "Punjab",
+            "Rajasthan",
+            "Sikkim",
+            "Tamil Nadu",
+            "Telangana",
+            "Tripura",
+            "Uttar Pradesh",
+            "Uttarakhand",
+            "West Bengal",
+            "Bangalore",
+            "Mumbai",
+            "Kolkatta",
+            "Chennai"
+    );
+
 
     public Utilities(Context applicationContext) {
         dbHelper = new AutofareDBHelper(applicationContext);
