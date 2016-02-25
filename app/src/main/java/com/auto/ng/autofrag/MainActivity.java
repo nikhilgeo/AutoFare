@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Rate Card"));
         tabLayout.addTab(tabLayout.newTab().setText("Calculate Fare"));
+        tabLayout.addTab(tabLayout.newTab().setText("Update Fare"));
+
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
