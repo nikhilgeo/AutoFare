@@ -98,7 +98,7 @@ public class RateCard_Frag extends Fragment {
             nightCharge = Float.parseFloat(cursor.getString(cursor.getColumnIndexOrThrow(AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_nightCharge)));
 
 
-            for (int i = 3; i < 101; i++) {
+            for (int i = 3; i < 51; i++) {
                 double km = i * 0.5;
                 double fare = minCharge;
                 if (km > minCharge_KM) {
@@ -145,6 +145,8 @@ public class RateCard_Frag extends Fragment {
                 tbl.addView(row);
             }
         }
+
+        cursor.close();
 
 
     }

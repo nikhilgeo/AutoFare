@@ -29,6 +29,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
                 return tab2;
             case 2:
                 UpdateFare_Frag tab3 = new UpdateFare_Frag();
+
                 return tab3;
             default:
                 return null;

@@ -4,12 +4,9 @@ package com.auto.ng.autofrag;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -31,7 +28,7 @@ public class CalculateFare_Frag extends Fragment {
         etxttravel_distance = (EditText) rootView.findViewById(R.id.travel_distance);
         etxtwaiting_time = (EditText) rootView.findViewById(R.id.waiting_time);
         GridLayout grd_ratesumry = (GridLayout) rootView.findViewById(R.id.grd_ratesumry);
-        grd_ratesumry.setVisibility(GridLayout.GONE);
+        // grd_ratesumry.setVisibility(GridLayout.GONE);
 
         Button button = (Button) rootView.findViewById(R.id.btn_calfare);
         button.setOnClickListener(new View.OnClickListener() {
@@ -41,29 +38,6 @@ public class CalculateFare_Frag extends Fragment {
             }
         });
 
-        etxttravel_distance.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-
-                    etxttravel_distance.setCursorVisible(false);
-                    return true;
-                }
-                return false;
-            }
-        });
-
-        etxtwaiting_time.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-
-                    etxtwaiting_time.setCursorVisible(false);
-                    return true;
-                }
-                return false;
-            }
-        });
 
 
         getFare();
@@ -72,6 +46,7 @@ public class CalculateFare_Frag extends Fragment {
 
 
     private void getFare() {
+        Cursor cursor = null;
         try {
             // Log.w("AutoFare", "In getFare");
             Utilities utilities = new Utilities(getActivity());
@@ -86,7 +61,7 @@ public class CalculateFare_Frag extends Fragment {
             String whereCondtion = null;
 
 
-            Cursor cursor = utilities.readDB(AutoFareDBContract.BaseFareTemplate.TABLE_NAME, projection, whereCondtion);
+            cursor = utilities.readDB(AutoFareDBContract.BaseFareTemplate.TABLE_NAME, projection, whereCondtion);
 
             if (cursor.moveToFirst()) {
                 minCharge = Float.parseFloat(cursor.getString(cursor.getColumnIndexOrThrow(AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_minCharge)));
@@ -100,6 +75,8 @@ public class CalculateFare_Frag extends Fragment {
             }
         } catch (Exception ex) {
             //Log.e("AutoFare", ex.toString());
+        } finally {
+            cursor.close();
         }
 
     }
