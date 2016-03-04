@@ -72,31 +72,34 @@ public class RateCard_Frag extends Fragment {
 
 
     private void gen_rate_card(View rootView) {
+        try {
 
-        double minCharge, minCharge_KM, additionalFare, nightCharge;
-        TableLayout tbl = (TableLayout) rootView.findViewById(R.id.tbl_main);
+            double minCharge = 0, minCharge_KM = 0, additionalFare = 0, nightCharge = 0;
+            TableLayout tbl = (TableLayout) rootView.findViewById(R.id.tbl_main);
 
-        Log.w("AutoFare", "In getFare");
-        Utilities utilities = new Utilities(getActivity());
-        String[] projection = {AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_minCharge,
-                AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_minCharge_KM,
-                AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_additionalFare,
-                AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_additionalFare_KM,
-                AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_waitingCharge,
-                AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_waitingCharge_Min,
-                AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_nightCharge,
-                AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_stateName};
-        String whereCondtion = null;
+            Log.w("AutoFare", "In getFare");
+            Utilities utilities = new Utilities(getActivity());
+            String[] projection = {AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_minCharge,
+                    AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_minCharge_KM,
+                    AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_additionalFare,
+                    AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_additionalFare_KM,
+                    AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_waitingCharge,
+                    AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_waitingCharge_Min,
+                    AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_nightCharge,
+                    AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_stateName};
+            String whereCondtion = null;
 
 
-        Cursor cursor = utilities.readDB(AutoFareDBContract.BaseFareTemplate.TABLE_NAME, projection, whereCondtion);
+            Cursor cursor = utilities.readDB(AutoFareDBContract.BaseFareTemplate.TABLE_NAME, projection, whereCondtion);
 
-        if (cursor.moveToFirst()) {
-            minCharge = Float.parseFloat(cursor.getString(cursor.getColumnIndexOrThrow(AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_minCharge)));
-            minCharge_KM = Float.parseFloat(cursor.getString(cursor.getColumnIndexOrThrow(AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_minCharge_KM)));
-            additionalFare = Float.parseFloat(cursor.getString(cursor.getColumnIndexOrThrow(AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_additionalFare)));
-            nightCharge = Float.parseFloat(cursor.getString(cursor.getColumnIndexOrThrow(AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_nightCharge)));
+            if (cursor.moveToFirst()) {
+                minCharge = Float.parseFloat(cursor.getString(cursor.getColumnIndexOrThrow(AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_minCharge)));
+                minCharge_KM = Float.parseFloat(cursor.getString(cursor.getColumnIndexOrThrow(AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_minCharge_KM)));
+                additionalFare = Float.parseFloat(cursor.getString(cursor.getColumnIndexOrThrow(AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_additionalFare)));
+                nightCharge = Float.parseFloat(cursor.getString(cursor.getColumnIndexOrThrow(AutoFareDBContract.BaseFareTemplate.COLUMN_NAME_nightCharge)));
 
+            }
+            cursor.close();
 
             for (int i = 3; i < 51; i++) {
                 double km = i * 0.5;
@@ -144,10 +147,10 @@ public class RateCard_Frag extends Fragment {
                 row.addView(txtNightCharge);
                 tbl.addView(row);
             }
+
+
+        } catch (Exception ex) {
+            //Log.e("AutoFare", ex.toString());
         }
-
-        cursor.close();
-
-
     }
 }

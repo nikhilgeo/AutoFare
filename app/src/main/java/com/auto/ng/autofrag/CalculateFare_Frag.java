@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -19,7 +21,7 @@ public class CalculateFare_Frag extends Fragment {
             nightCharge, waitingCharge, waitingCharge_Min;
     private EditText etxttravel_distance, etxtwaiting_time;
     View rootView;
-
+    Button button = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -30,14 +32,17 @@ public class CalculateFare_Frag extends Fragment {
         GridLayout grd_ratesumry = (GridLayout) rootView.findViewById(R.id.grd_ratesumry);
         // grd_ratesumry.setVisibility(GridLayout.GONE);
 
-        Button button = (Button) rootView.findViewById(R.id.btn_calfare);
+        button = (Button) rootView.findViewById(R.id.btn_calfare);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                etxttravel_distance.clearFocus();
+                etxtwaiting_time.clearFocus();
+                getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+
                 calcFare();
             }
         });
-
 
 
         getFare();
@@ -83,7 +88,6 @@ public class CalculateFare_Frag extends Fragment {
 
     public void calcFare() {
         try {
-
 
             GridLayout grd_ratesumry = (GridLayout) rootView.findViewById(R.id.grd_ratesumry);
             grd_ratesumry.setVisibility(GridLayout.VISIBLE);
