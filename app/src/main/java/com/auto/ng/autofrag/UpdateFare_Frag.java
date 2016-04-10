@@ -19,10 +19,23 @@ public class UpdateFare_Frag extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_update_fare, container, false);
-        AutoCompleteTextView multiAutoCompleteTextView = (AutoCompleteTextView) rootView.findViewById(R.id.multi_auto_complete_textview);
-        ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.select_dialog_item, Utilities.places.toArray(new String[0]));
-        multiAutoCompleteTextView.setAdapter(adapter);
-        multiAutoCompleteTextView.setThreshold(1);
+        /*** Auto Complete population code---removed for Boli release
+         *
+         * Layout code for AutoCompleteTextView
+         *<AutoCompleteTextView
+         *android:id="@+id/multi_auto_complete_textview"
+         *android:layout_width="match_parent"
+         *android:layout_height="wrap_content"
+         *android:layout_gravity="center"
+         *android:hint="Select City or State "/>
+         *
+         * Java code
+         AutoCompleteTextView multiAutoCompleteTextView = (AutoCompleteTextView) rootView.findViewById(R.id.multi_auto_complete_textview);
+         ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.select_dialog_item, Utilities.places.toArray(new String[0]));
+         multiAutoCompleteTextView.setAdapter(adapter);
+         multiAutoCompleteTextView.setThreshold(1);
+         */
+
         return rootView;
     }
 
