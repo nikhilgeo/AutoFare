@@ -65,7 +65,7 @@ public class RateCard_Frag extends Fragment {
                 txtviewWatingCharge.setText(getResources().getString(R.string.Rs) + waitingCharge + "/" + waitingCharge_Min + "Mins");
             }
         } catch (Exception ex) {
-            //Log.e("AutoFare", ex.toString());
+            Log.e("AutoFare", ex.toString());
         }
 
     }
