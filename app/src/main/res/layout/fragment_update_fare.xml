@@ -59,115 +59,6 @@
         android:layout_alignParentRight="true"
         android:orientation="vertical">
 
-
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-
-            <EditText
-                android:id="@+id/edt_waitingChrg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="00.0"
-                android:inputType="numberDecimal"
-                android:maxLength="4" />
-
-            <TextView
-                style="@style/TextViewTheme"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:paddingTop="10dp"
-                android:text="Rs for" />
-
-            <EditText
-                android:id="@+id/edt_waitingChrgMin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="00.0"
-                android:inputType="numberDecimal"
-                android:maxLength="4" />
-
-            <TextView
-                style="@style/TextViewTheme"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:paddingTop="10dp"
-                android:text="Min" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-
-            <EditText
-                android:id="@+id/edt_nightChrgRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="00.0"
-                android:inputType="numberDecimal"
-                android:maxLength="4" />
-
-            <TextView
-                style="@style/TextViewTheme"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:paddingTop="10dp"
-                android:text="% Extra" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:orientation="horizontal">
-
-
-            <EditText
-                android:id="@+id/edt_afterMinChrgRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="00.0"
-                android:inputType="numberDecimal"
-                android:maxLength="4" />
-
-            <TextView
-                style="@style/TextViewTheme"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:paddingTop="10dp"
-                android:text="Rs for" />
-
-            <EditText
-                android:id="@+id/edt_afterMinChrgDist"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="00.0"
-                android:inputType="numberDecimal"
-                android:maxLength="4" />
-
-            <TextView
-                style="@style/TextViewTheme"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:paddingTop="10dp"
-                android:text="KM" />
-
-        </LinearLayout>
-
         <LinearLayout
             android:id="@+id/linearLayout5"
             android:layout_width="wrap_content"
@@ -211,6 +102,113 @@
 
 
         </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/edt_afterMinChrgRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="00.0"
+                android:inputType="numberDecimal"
+                android:maxLength="4" />
+
+            <TextView
+                style="@style/TextViewTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:paddingTop="10dp"
+                android:text="Rs for" />
+
+            <EditText
+                android:id="@+id/edt_afterMinChrgDist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="00.0"
+                android:inputType="numberDecimal"
+                android:maxLength="4" />
+
+            <TextView
+                style="@style/TextViewTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:paddingTop="10dp"
+                android:text="KM" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/edt_nightChrgRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="00.0"
+                android:inputType="numberDecimal"
+                android:maxLength="4" />
+
+            <TextView
+                style="@style/TextViewTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:paddingTop="10dp"
+                android:text="% Extra" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/edt_waitingChrg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="00.0"
+                android:inputType="numberDecimal"
+                android:maxLength="4" />
+
+            <TextView
+                style="@style/TextViewTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:paddingTop="10dp"
+                android:text="Rs for" />
+
+            <EditText
+                android:id="@+id/edt_waitingChrgMin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="00.0"
+                android:inputType="numberDecimal"
+                android:maxLength="4" />
+
+            <TextView
+                style="@style/TextViewTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:paddingTop="10dp"
+                android:text="Min" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <Button
