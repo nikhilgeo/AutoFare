@@ -1,5 +1,6 @@
 package com.auto.ng.autofrag;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -70,7 +71,7 @@ public class Utilities {
         try {
             cursor = db.query(TableName, // The table to query
                     projection, // The columns to return
-                    null, // The columns for the WHERE clause
+                    whereClause, // The columns for the WHERE clause
                     null,// The sort order e.g: new String[] { wifiSSID }
                     null, null, null);
             return cursor;
@@ -82,6 +83,21 @@ public class Utilities {
         }
 
 
+    }
+
+    public int updateDB(String table, ContentValues values, String whereClause, String[] whereArgs) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        int updateStatus = -1;
+
+        try {
+            updateStatus = db.update(table, values, whereClause, whereArgs);
+            return updateStatus;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            Log.e("AutoFare", ex.toString());
+            db.close();
+            return updateStatus;
+        }
     }
 
 
